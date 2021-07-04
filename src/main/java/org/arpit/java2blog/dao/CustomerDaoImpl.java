@@ -19,8 +19,7 @@ public class CustomerDaoImpl  implements CustomerDao  {
 
 
 	public List<Customer> getAllCustomers() {
-		List<Customer> aList = baseDao.getByList();
-		System.out.println("reach....." + aList);
+	
 		return baseDao.getByList();
 	}
 

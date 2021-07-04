@@ -1,7 +1,10 @@
 package org.arpit.java2blog.dao;
 
+import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
+import org.arpit.java2blog.model.Customer;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -12,10 +15,13 @@ public class BaseDaoImpl implements BaseDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
+
+	
 	@Override
-	public<Po> List<Po> getByList() {
-		
-		return null;
+	public <Po> List<Po> getByList() {
+		Session session = this.sessionFactory.getCurrentSession();
+		List<Po>  customerList = session.createQuery("from Customer").list();
+		return customerList;
 	}
 
 	@Override
