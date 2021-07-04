@@ -8,46 +8,35 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
 @Repository
-public class CustomerDaoImpl implements CustomerDao{
+public class CustomerDaoImpl  implements CustomerDao  {
 
 	@Autowired
-	private SessionFactory sessionFactory;
+	private BaseDao baseDao;
 
-	public void setSessionFactory(SessionFactory sf) {
-		this.sessionFactory = sf;
-	}
+
 
 	public List<Customer> getAllCustomers() {
-		Session session = this.sessionFactory.getCurrentSession();
-		List<Customer>  customerList = session.createQuery("from Customer").list();
-		return customerList;
+		List<Customer> aList = baseDao.getByList();
+		System.out.println("reach....." + aList);
+		return baseDao.getByList();
 	}
 
 	public Customer getCustomer(int id) {
-		Session session = this.sessionFactory.getCurrentSession();
-		Customer customer = (Customer) session.get(Customer.class, id);
-		return customer;
+	return null;
 	}
 
 	public Customer addCustomer(Customer customer) {
-		Session session = this.sessionFactory.getCurrentSession();
-		session.save(customer);
-		return customer;
+		return null;
 	}
 
 	public void updateCustomer(Customer customer) {
-		Session session = this.sessionFactory.getCurrentSession();
-		Hibernate.initialize(customer);
-		session.update(customer);
+	
 	}
 
 	public void deleteCustomer(int id) {
-		Session session = this.sessionFactory.getCurrentSession();
-		Customer p = (Customer) session.load(Customer.class, new Integer(id));
-		if (null != p) {
-			session.delete(p);
-		}
+	
 	} 
 }
