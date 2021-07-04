@@ -1,0 +1,12 @@
+http://tw.gitbook.net/hibernate/hibernate_criteria_queries.html
+https://www.hangge.com/blog/cache/detail_2908.html
+https://programmer.group/springboot-integrates-mybatis-plus-3.1-detailed-tutorial.html
+https://java2blog.com/spring-boot-hibernate-example/#Project_structure
+
+db2: db2admin 123456     port:50000     DB2 指令視窗 - 管理者  command: db2start       db2 CREATE DATABASE XYZ
+mysql: root   password   port 3306      open windows service to close and open db 
+maridb : root 123456     port 3307      open windows service to close and open db
+
+
+
+
