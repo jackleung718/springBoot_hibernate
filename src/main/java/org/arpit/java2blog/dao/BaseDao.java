@@ -7,9 +7,7 @@ import java.util.List;
 public interface BaseDao {
 	public <po> List<po> getByList() ;
 
-	public<Po> Po getById(int id) ;
-
-	
+	public<Po> Po getById(int id ,Class<Po> aClass);
 
 	public<Po> void updateObject(Po Po) ;
 
@@ -17,7 +15,4 @@ public interface BaseDao {
 
 	<Po> Po addObject(Po po);
 
-	
-	
-	
 }

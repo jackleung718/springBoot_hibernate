@@ -7,6 +7,7 @@ import org.arpit.java2blog.model.Customer;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -25,15 +26,17 @@ public class BaseDaoImpl implements BaseDao {
 	}
 
 	@Override
-	public<Po> Po getById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public<Po> Po getById(int id ,Class<Po> aClass) {		
+		Session session = this.sessionFactory.getCurrentSession();
+		Po po =  session.get(aClass, id);
+	
+		return po;
+
 	}
 
 	@Override
 	public  void updateObject(Object po) {
-		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override

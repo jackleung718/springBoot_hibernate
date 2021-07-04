@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-@Service("customerService")
+@Service
 public class CustomerService {
 
 	@Autowired
@@ -23,7 +23,10 @@ public class CustomerService {
 
 	@Transactional
 	public Customer getCustomer(int id) {
-		return customerDao.getCustomer(id);
+		Customer temp = customerDao.getCustomer(id);
+		
+	//	System.out.println(temp.getCustomerName()+ " "+temp.getEmail() + "...............");
+		return temp;
 	}
 
 	@Transactional
@@ -34,11 +37,11 @@ public class CustomerService {
 	@Transactional
 	public void updateCustomer(Customer customer) {
 		customerDao.updateCustomer(customer);
-
 	}
 
 	@Transactional
 	public void deleteCustomer(int id) {
 		customerDao.deleteCustomer(id);
 	}
+	
 }

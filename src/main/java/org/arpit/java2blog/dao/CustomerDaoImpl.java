@@ -24,7 +24,7 @@ public class CustomerDaoImpl  implements CustomerDao  {
 	}
 
 	public Customer getCustomer(int id) {
-	return null;
+		return baseDao.getById(id,Customer.class);
 	}
 
 	public Customer addCustomer(Customer customer) {
